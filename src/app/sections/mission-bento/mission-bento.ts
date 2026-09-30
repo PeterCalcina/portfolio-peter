@@ -1,8 +1,8 @@
 import { NgClass } from '@angular/common';
 import { Component, HostListener, inject, signal } from '@angular/core';
-import { blurbFor, Layer, metricFor, MISSIONS, missionCopy } from '../core/content';
-import { Deck } from '../core/deck';
-import { TiltCard } from '../shared/tilt';
+import { blurbFor, Layer, metricFor, MISSIONS, missionCopy } from '../../core/content';
+import { Deck } from '../../core/deck';
+import { TiltCard } from '../../shared/tilt';
 
 @Component({
   selector: 'app-mission-bento',

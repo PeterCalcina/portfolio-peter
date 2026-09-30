@@ -1,5 +1,5 @@
 import { Component, inject, OnDestroy, signal } from '@angular/core';
-import { Deck } from '../core/deck';
+import { Deck } from '../../core/deck';
 
 @Component({
   selector: 'app-instrument-lab',
