@@ -1,0 +1,116 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-void: #07080c;
+  --color-panel: #0c1018;
+  --color-raised: #121a24;
+  --color-line: #243044;
+  --color-phosphor: #3dff9a;
+  --color-ice: #7ae7ff;
+  --color-amber: #ffb020;
+  --color-fog: #8b9bb4;
+  --color-paper: #e8eef7;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: var(--color-void);
+  color: var(--color-paper);
+  font-family: var(--font-mono);
+}
+
+body {
+  min-height: 100dvh;
+}
+
+body::before {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(122, 231, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(122, 231, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 20%, #000 20%, transparent 75%);
+}
+
+body::after {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.04;
+  background: repeating-linear-gradient(
+    to bottom,
+    #000 0,
+    #000 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+app-root {
+  position: relative;
+  z-index: 2;
+  display: block;
+}
+
+.panel {
+  background: color-mix(in oklab, var(--color-panel) 82%, transparent);
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(14px);
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-phosphor);
+}
+
+.display {
+  font-family: var(--font-display);
+  letter-spacing: -0.04em;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 80;
+  background: var(--color-phosphor);
+  color: var(--color-void);
+  padding: 0.4rem 0.7rem;
+  font-size: 0.75rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ice);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .tilt-host,
+  [tiltCard] {
+    transform: none !important;
+    transition: none !important;
+  }
+}

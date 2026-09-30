@@ -1,0 +1,21 @@
+<section id="experiencia" class="mx-auto max-w-6xl px-4 py-20 md:px-6">
+  <p class="kicker">{{ deck.copy().logKicker }}</p>
+  <h2 class="display mt-3 text-3xl md:text-5xl">{{ title() }}</h2>
+  <p class="mt-3 max-w-2xl text-sm leading-7 text-fog">{{ sub() }}</p>
+
+  <ol class="rail mt-12">
+    @for (jump of jumps; track jump.id) {
+      <li class="jump">
+        <span class="ping" aria-hidden="true"></span>
+        <p class="text-[0.68rem] tracking-[0.2em] text-phosphor">
+          {{ jump.year }}
+          @if (jump.place) {
+            <span class="text-fog"> · {{ jump.place }}</span>
+          }
+        </p>
+        <h3 class="display mt-2 text-2xl">{{ local(jump.id)?.title }}</h3>
+        <p class="mt-2 max-w-xl text-sm leading-7 text-fog">{{ body(jump.id) }}</p>
+      </li>
+    }
+  </ol>
+</section>

@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+
+input {
+  caret-color: var(--color-phosphor);
+}

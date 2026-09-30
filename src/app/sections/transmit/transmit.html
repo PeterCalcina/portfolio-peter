@@ -1,0 +1,54 @@
+<section id="transmit" class="mx-auto max-w-6xl px-4 py-20 md:px-6">
+  <p class="kicker">{{ deck.copy().txKicker }}</p>
+  <h2 class="display mt-3 text-3xl md:text-5xl">{{ title() }}</h2>
+  <p class="mt-3 max-w-2xl text-sm leading-7 text-fog">{{ sub() }}</p>
+
+  <div class="panel mt-10 max-w-2xl rounded-sm">
+    <div class="border-b border-line px-4 py-3 text-[0.72rem] tracking-widest text-ice">
+      {{ deck.copy().txSystem }}
+    </div>
+    <div class="min-h-40 space-y-3 px-4 py-4">
+      @for (msg of thread(); track $index) {
+        <p class="ml-auto max-w-[85%] bg-raised px-3 py-2 text-sm text-paper">{{ msg }}</p>
+      }
+    </div>
+    <form class="flex flex-col gap-3 border-t border-line p-4 md:flex-row" (submit)="$event.preventDefault(); send()">
+      <label class="sr-only" for="brief">{{ deck.copy().txPlaceholder }}</label>
+      <input
+        id="brief"
+        class="flex-1 bg-transparent text-sm text-paper outline-none"
+        [placeholder]="deck.copy().txPlaceholder"
+        [value]="draft()"
+        (input)="draft.set($any($event.target).value)"
+      />
+      <button type="submit" class="text-[0.72rem] tracking-[0.16em] text-phosphor uppercase">
+        {{ deck.copy().txSend }} →
+      </button>
+    </form>
+  </div>
+
+  <div class="mt-6 flex flex-wrap items-center gap-4">
+    <button
+      type="button"
+      class="copy-btn border px-4 py-2 text-[0.72rem] tracking-[0.16em] uppercase"
+      [class.border-phosphor]="copied()"
+      [class.text-phosphor]="copied()"
+      [class.border-line]="!copied()"
+      [class.text-fog]="!copied()"
+      (click)="copy()"
+    >
+      {{ copied() ? deck.copy().txCopied : deck.copy().txCopy }}
+    </button>
+    <a class="text-[0.72rem] tracking-widest text-ice underline-offset-4 hover:underline" [href]="'mailto:' + email">
+      {{ email }}
+    </a>
+    <a
+      class="text-[0.72rem] tracking-widest text-fog underline-offset-4 hover:text-ice hover:underline"
+      [href]="linkedin"
+      target="_blank"
+      rel="noreferrer"
+    >
+      LinkedIn
+    </a>
+  </div>
+</section>

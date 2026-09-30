@@ -1,0 +1,54 @@
+:host {
+  display: block;
+}
+
+.rail {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.rail::before {
+  content: '';
+  position: absolute;
+  left: 0.2rem;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 1px;
+  background: var(--color-line);
+}
+
+.jump {
+  position: relative;
+  padding-bottom: 2.5rem;
+  animation: rise linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 40%;
+}
+
+.ping {
+  position: absolute;
+  left: -1.42rem;
+  top: 0.35rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--color-phosphor);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-phosphor) 22%, transparent);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0.2;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jump {
+    animation: none;
+  }
+}

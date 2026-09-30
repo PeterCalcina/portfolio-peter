@@ -1,0 +1,56 @@
+<section id="deck" class="mx-auto grid min-h-[calc(100dvh-3.5rem)] max-w-6xl gap-8 px-4 py-10 md:grid-cols-12 md:items-center md:px-6">
+  <div class="md:col-span-7">
+    <div class="flex items-end gap-5">
+      <div class="relative isolate h-28 w-28 shrink-0 md:h-36 md:w-36">
+        <span class="absolute inset-[-18%] rounded-full bg-phosphor/25 blur-2xl" aria-hidden="true"></span>
+        <img
+          src="images/profile-1.png"
+          width="144"
+          height="144"
+          alt="Peter Calcina"
+          class="relative z-10 h-full w-full object-contain"
+        />
+      </div>
+      <div>
+        <p class="kicker">{{ deck.copy().status }}</p>
+        <h1 class="display mt-2 text-4xl text-paper md:text-6xl">{{ deck.copy().name }}</h1>
+        <p class="mt-1 text-ice">{{ deck.copy().role }}</p>
+      </div>
+    </div>
+
+    <p class="display mt-8 max-w-xl text-2xl text-paper md:text-3xl">{{ lead() }}</p>
+    <p class="mt-4 max-w-xl text-sm leading-7 text-fog">{{ body() }}</p>
+  </div>
+
+  <div class="md:col-span-5">
+    <div class="panel overflow-hidden rounded-sm">
+      <div class="flex items-center justify-between border-b border-line px-3 py-2">
+        <p class="text-[0.68rem] tracking-[0.18em] text-ice">{{ deck.copy().termTitle }}</p>
+        <p class="text-[0.68rem] text-fog">{{ deck.copy().termHint }}</p>
+      </div>
+      <div
+        class="h-72 cursor-text overflow-y-auto px-3 py-3 text-[0.78rem] leading-6 text-phosphor"
+        (click)="focusTerm()"
+      >
+        @for (line of lines(); track $index) {
+          <p class="whitespace-pre-wrap">{{ line }}</p>
+        }
+        <label class="flex items-center gap-2 text-ice">
+          <span aria-hidden="true">&gt;</span>
+          <input
+            #termInput
+            class="w-full bg-transparent text-paper outline-none"
+            name="command"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            [attr.aria-label]="deck.copy().termTitle"
+            [value]="draft()"
+            (input)="draft.set($any($event.target).value)"
+            (keydown)="onKey($event)"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+</section>

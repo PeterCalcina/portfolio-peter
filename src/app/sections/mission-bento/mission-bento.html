@@ -1,0 +1,77 @@
+<section id="proyectos" class="mx-auto max-w-6xl px-4 py-20 md:px-6">
+  <p class="kicker">{{ deck.copy().missionsKicker }}</p>
+  <h2 class="display mt-3 text-3xl md:text-5xl">{{ title() }}</h2>
+  <p class="mt-3 max-w-2xl text-sm leading-7 text-fog">{{ sub() }}</p>
+
+  <div class="mt-10 grid gap-4 [perspective:1000px] md:grid-cols-6 md:grid-rows-2">
+    @for (mission of missions; track mission.id) {
+      <article
+        tiltCard
+        class="tilt-host panel group relative overflow-hidden rounded-sm p-5"
+        [ngClass]="mission.id === 'deck' ? 'md:col-span-4 md:row-span-2 min-h-[22rem]' : 'md:col-span-2 min-h-[16rem]'"
+      >
+        <span class="shine" aria-hidden="true"></span>
+        <div class="relative z-10 flex h-full flex-col">
+          <div class="flex items-center justify-between text-[0.68rem] tracking-[0.16em] text-fog">
+            <span>{{ mission.code }}</span>
+            <span>{{ mission.year }}</span>
+          </div>
+
+          <div class="preview mt-4" [attr.data-kind]="mission.preview" aria-hidden="true"></div>
+
+          <h3 class="display mt-4 text-2xl">{{ local(mission.id)?.title }}</h3>
+          <p class="mt-2 text-sm leading-6 text-fog">{{ blurb(mission.id) }}</p>
+
+          <div class="mt-4 flex flex-wrap gap-2">
+            @for (metric of metrics(mission.id); track metric) {
+              <span class="border border-line px-2 py-1 text-[0.68rem] tracking-wide text-ice">{{ metric }}</span>
+            }
+          </div>
+
+          <button
+            type="button"
+            class="mt-auto self-start pt-6 text-[0.72rem] tracking-[0.16em] text-phosphor uppercase"
+            (click)="open(mission.id)"
+          >
+            {{ deck.copy().openArch }} →
+          </button>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+@if (openId(); as id) {
+  <div class="drawer-back" (click)="close()"></div>
+  <aside class="drawer panel" role="dialog" aria-modal="true" [attr.aria-labelledby]="'arch-' + id">
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <p class="kicker">{{ id }}</p>
+        <h3 class="display mt-2 text-2xl" [id]="'arch-' + id">{{ local(id)?.title }}</h3>
+      </div>
+      <button type="button" class="text-[0.72rem] tracking-widest text-fog uppercase" (click)="close()">
+        {{ deck.copy().closeArch }}
+      </button>
+    </div>
+
+    <div class="mt-6 flex gap-2" role="tablist">
+      @for (key of layers; track key) {
+        <button
+          type="button"
+          role="tab"
+          class="border px-3 py-1 text-[0.68rem] tracking-widest uppercase"
+          [class.border-phosphor]="layer() === key"
+          [class.text-phosphor]="layer() === key"
+          [class.border-line]="layer() !== key"
+          [class.text-fog]="layer() !== key"
+          [attr.aria-selected]="layer() === key"
+          (click)="layer.set(key)"
+        >
+          {{ deck.copy().layers[key] }}
+        </button>
+      }
+    </div>
+
+    <p class="mt-6 text-sm leading-7 text-paper">{{ layerText() }}</p>
+  </aside>
+}
