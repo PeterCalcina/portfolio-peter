@@ -21,7 +21,7 @@
         [value]="draft()"
         (input)="draft.set($any($event.target).value)"
       />
-      <button type="submit" class="text-[0.72rem] tracking-[0.16em] text-phosphor uppercase">
+      <button type="submit" class="btn-send text-[0.72rem] tracking-[0.16em] uppercase">
         {{ deck.copy().txSend }} →
       </button>
     </form>
@@ -30,7 +30,7 @@
   <div class="mt-6 flex flex-wrap items-center gap-4">
     <button
       type="button"
-      class="copy-btn border px-4 py-2 text-[0.72rem] tracking-[0.16em] uppercase"
+      class="copy-btn btn-ghost px-4 py-2 text-[0.72rem] tracking-[0.16em] uppercase"
       [class.border-phosphor]="copied()"
       [class.text-phosphor]="copied()"
       [class.border-line]="!copied()"
@@ -39,16 +39,24 @@
     >
       {{ copied() ? deck.copy().txCopied : deck.copy().txCopy }}
     </button>
-    <a class="text-[0.72rem] tracking-widest text-ice underline-offset-4 hover:underline" [href]="'mailto:' + email">
+    <a class="link-action text-[0.72rem] tracking-widest" [href]="'mailto:' + email">
       {{ email }}
     </a>
     <a
-      class="text-[0.72rem] tracking-widest text-fog underline-offset-4 hover:text-ice hover:underline"
+      class="link-action text-[0.72rem] tracking-widest text-fog"
       [href]="linkedin"
       target="_blank"
       rel="noreferrer"
     >
       LinkedIn
+    </a>
+    <a
+      class="link-action text-[0.72rem] tracking-widest text-fog"
+      [href]="whatsappUrl"
+      target="_blank"
+      rel="noreferrer"
+    >
+      WhatsApp {{ whatsapp }}
     </a>
   </div>
 </section>

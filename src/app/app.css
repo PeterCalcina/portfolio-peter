@@ -3,7 +3,20 @@
 }
 
 .menu-btn {
+  cursor: pointer;
   background: transparent;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.menu-btn:hover {
+  color: var(--color-ice);
+  border-color: color-mix(in oklab, var(--color-ice) 55%, var(--color-line));
+  background: color-mix(in oklab, var(--color-ice) 8%, transparent);
+  opacity: 1;
 }
 
 .menu-icon {

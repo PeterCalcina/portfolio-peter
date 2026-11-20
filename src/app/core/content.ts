@@ -29,6 +29,8 @@ export interface Jump {
 
 export const EMAIL = 'peter.calcina1221@gmail.com';
 export const LINKEDIN = 'https://www.linkedin.com/in/peter-c12';
+export const WHATSAPP = '+591 68451539';
+export const WHATSAPP_URL = 'https://wa.me/59168451539';
 
 export const MISSIONS: Mission[] = [
   {
@@ -120,14 +122,14 @@ export const JUMPS: Jump[] = [
     es: {
       title: 'Desarrollador · Smart Step',
       signal:
-        'Único desarrollador del stack (front, back, DB, despliegue) y consultor. Armé la infraestructura del sitio web académico y apoyo el ERP.',
-      source: 'Rol full-stack + consultoría. Un solo punto técnico para web y sistemas internos.',
+        'Responsable del desarrollo integral de la plataforma digital: diseño y construcción del sitio web académico y evolución continua del sistema interno (ERP).',
+      source: '',
     },
     en: {
       title: 'Developer · Smart Step',
       signal:
-        'Sole developer across the stack (front, back, DB, deploy) and consultant. Built the academic website infrastructure and support the ERP.',
-      source: 'Full-stack role + consulting. One technical owner for web and internal systems.',
+        'Responsible for the full digital platform: design and build of the academic website and ongoing evolution of the internal system (ERP).',
+      source: '',
     },
   },
   {
@@ -135,14 +137,16 @@ export const JUMPS: Jump[] = [
     year: 'Cliente',
     place: 'Cochabamba / Oruro',
     es: {
-      title: 'Landing · Trauma Regenerativa',
-      signal: 'Sitio público de la clínica: información del equipo médico y contacto. En vivo en traumaregenerativa.com.',
-      source: 'Entrega de producto para cliente real. Landing informativa con conversión a contacto.',
+      title: 'Diseño y Desarrollo Web · Trauma Regenerativa',
+      signal:
+        'Creación del sitio web oficial de la clínica para presentar a sus especialistas, servicios y canales de atención en Cochabamba y Oruro.',
+      source: '',
     },
     en: {
-      title: 'Landing · Trauma Regenerativa',
-      signal: 'Public clinic site: medical team info and contact. Live at traumaregenerativa.com.',
-      source: 'Delivery for a real client. Informational landing with contact conversion.',
+      title: 'Web Design & Development · Trauma Regenerativa',
+      signal:
+        'Built the clinic’s official website to present specialists, services, and contact channels in Cochabamba and Oruro.',
+      source: '',
     },
   },
   {
@@ -151,13 +155,15 @@ export const JUMPS: Jump[] = [
     place: 'Bolivia',
     es: {
       title: 'Ingeniería de Sistemas · Univalle',
-      signal: 'Formación en Universidad del Valle. Base para el trabajo full-stack que hago hoy.',
-      source: 'Ingeniería de Sistemas, Universidad del Valle (BO), 2019–2024.',
+      signal:
+        'Formación en ingeniería de software, diseño de sistemas y arquitectura de datos en la Universidad del Valle.',
+      source: '',
     },
     en: {
       title: 'Systems Engineering · Univalle',
-      signal: 'Degree path at Universidad del Valle. Foundation for the full-stack work I do now.',
-      source: 'Systems Engineering, Universidad del Valle (BO), 2019–2024.',
+      signal:
+        'Training in software engineering, systems design, and data architecture at Universidad del Valle.',
+      source: '',
     },
   },
 ];
@@ -202,22 +208,25 @@ export const COPY = {
     labSettled: 'asentado',
     labKeys: 'teclas',
     labEmits: 'emits',
-    logKicker: 'EXPERIENCIA',
+    logKicker: '',
     logTitleSignal: 'Experiencia',
     logTitleSource: '',
-    logSubSignal: 'Trabajo actual, un cliente en vivo y la formación. Sin relleno.',
+    logSubSignal:
+      'Trayectoria profesional, proyectos en producción y formación académica.',
     logSubSource: '',
     txKicker: 'CONTACTO',
-    txTitleSignal: 'Hablemos',
+    txTitleSignal: 'Contáctame',
     txTitleSource: '',
-    txSubSignal: 'Escribe como en un chat. Enter abre tu correo. O copia el email en un click.',
+    txSubSignal:
+      'Cuéntame tu idea como en un chat; al enviar se abrirá tu correo listo para mandar. Si prefieres, copia mi dirección con un clic.',
     txSubSource: '',
-    txPlaceholder: 'Cuéntame qué necesitas, para cuándo y cualquier límite…',
+    txPlaceholder: 'Ej: Necesito una web para mi negocio o un sistema a medida para...',
     txSend: 'enviar',
     txCopy: 'copiar email',
     txCopied: 'copiado',
-    txSystem: 'listo · peter.calcina1221@gmail.com',
-    footer: 'PETER CALCINA',
+    txSystem: 'Disponible para proyectos · peter.calcina1221@gmail.com',
+    txWhatsapp: 'WhatsApp',
+    footer: '© 2026 Peter Calcina. Todos los derechos reservados.',
     help: [
       'whoami        quién soy',
       'stack         herramientas',
@@ -277,22 +286,25 @@ export const COPY = {
     labSettled: 'settled',
     labKeys: 'keys',
     labEmits: 'emits',
-    logKicker: 'EXPERIENCE',
+    logKicker: '',
     logTitleSignal: 'Experience',
     logTitleSource: '',
-    logSubSignal: 'Current role, one live client, and school. No filler.',
+    logSubSignal:
+      'Professional path, production projects, and academic training.',
     logSubSource: '',
     txKicker: 'CONTACT',
-    txTitleSignal: 'Let’s talk',
+    txTitleSignal: 'Contact me',
     txTitleSource: '',
-    txSubSignal: 'Write it like chat. Enter opens your mail app. Or copy the email in one click.',
+    txSubSignal:
+      'Tell me your idea like a chat; when you send, your email app opens ready to go. Or copy my address in one click.',
     txSubSource: '',
-    txPlaceholder: 'What you need, when you need it, any limit…',
+    txPlaceholder: 'Ex: I need a website for my business or a custom system for...',
     txSend: 'send',
     txCopy: 'copy email',
     txCopied: 'copied',
-    txSystem: 'ready · peter.calcina1221@gmail.com',
-    footer: 'PETER CALCINA',
+    txSystem: 'Available for projects · peter.calcina1221@gmail.com',
+    txWhatsapp: 'WhatsApp',
+    footer: '© 2026 Peter Calcina. All rights reserved.',
     help: [
       'whoami        who I am',
       'stack         tools',

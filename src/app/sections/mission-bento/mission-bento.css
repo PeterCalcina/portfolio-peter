@@ -4,7 +4,13 @@
 
 .tilt-host {
   transform-style: preserve-3d;
-  transition: transform 160ms ease;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease;
+}
+
+.tilt-host:hover {
+  border-color: color-mix(in oklab, var(--color-ice) 45%, var(--color-line));
 }
 
 .shine {

@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { EMAIL, LINKEDIN } from '../../core/content';
+import { EMAIL, LINKEDIN, WHATSAPP, WHATSAPP_URL } from '../../core/content';
 import { Deck } from '../../core/deck';
 
 @Component({
@@ -11,6 +11,8 @@ export class Transmit {
   readonly deck = inject(Deck);
   readonly email = EMAIL;
   readonly linkedin = LINKEDIN;
+  readonly whatsapp = WHATSAPP;
+  readonly whatsappUrl = WHATSAPP_URL;
   readonly draft = signal('');
   readonly copied = signal(false);
   readonly thread = signal<string[]>([]);
