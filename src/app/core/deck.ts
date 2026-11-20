@@ -1,7 +1,7 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { COPY } from './content';
+import { COPY, type Lang } from './content';
 
-export type Lang = 'es' | 'en';
+export type { Lang };
 
 @Injectable({ providedIn: 'root' })
 export class Deck {

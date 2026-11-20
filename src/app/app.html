@@ -49,7 +49,7 @@
         class="menu-btn inline-flex h-9 w-9 items-center justify-center border border-line text-paper md:hidden"
         [attr.aria-expanded]="menuOpen()"
         aria-controls="mobile-nav"
-        [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+        [attr.aria-label]="menuOpen() ? deck.copy().menuClose : deck.copy().menuOpen"
         (click)="toggleMenu()"
       >
         <span class="menu-icon" [class.open]="menuOpen()" aria-hidden="true"></span>

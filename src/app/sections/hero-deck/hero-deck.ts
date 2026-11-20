@@ -15,14 +15,6 @@ export class HeroDeck {
   private histIdx = -1;
   private readonly inputEl = viewChild<ElementRef<HTMLInputElement>>('termInput');
 
-  lead(): string {
-    return this.deck.copy().signalLead;
-  }
-
-  body(): string {
-    return this.deck.copy().signalBody;
-  }
-
   onKey(event: KeyboardEvent): void {
     if (event.key === 'ArrowUp') {
       event.preventDefault();
@@ -46,39 +38,36 @@ export class HeroDeck {
     const c = this.deck.copy();
     this.lines.update((ls) => [...ls, `> ${raw}`]);
 
-    if (cmd.kind === 'clear') {
-      this.lines.set([]);
-      return;
+    switch (cmd.kind) {
+      case 'clear':
+        this.lines.set([]);
+        return;
+      case 'help':
+        this.push(c.help);
+        return;
+      case 'whoami':
+        this.push([...c.whoami]);
+        return;
+      case 'stack':
+        this.push([...c.stack]);
+        return;
+      case 'focus':
+        this.push([c.focus]);
+        return;
+      case 'nav':
+        this.push([`${c.jumped} ${cmd.href}`]);
+        document.querySelector(cmd.href)?.scrollIntoView({ behavior: 'smooth' });
+        return;
+      default:
+        this.push([c.unknown]);
     }
-    if (cmd.kind === 'help') {
-      this.push(c.help);
-      return;
-    }
-    if (cmd.kind === 'whoami') {
-      this.push(c.whoami);
-      return;
-    }
-    if (cmd.kind === 'stack') {
-      this.push(c.stack);
-      return;
-    }
-    if (cmd.kind === 'focus') {
-      this.push([c.focus]);
-      return;
-    }
-    if (cmd.kind === 'nav') {
-      this.push([`${c.jumped} ${cmd.href}`]);
-      document.querySelector(cmd.href)?.scrollIntoView({ behavior: 'smooth' });
-      return;
-    }
-    this.push([c.unknown]);
   }
 
   focusTerm(): void {
     this.inputEl()?.nativeElement.focus();
   }
 
-  private push(extra: string[]): void {
+  private push(extra: readonly string[]): void {
     this.lines.update((ls) => [...ls, ...extra, '']);
   }
 }

@@ -1,4 +1,5 @@
 export type MissionStatus = 'production' | 'current' | 'playable';
+export type Lang = 'es' | 'en';
 
 export interface Mission {
   id: string;
@@ -23,8 +24,8 @@ export interface Jump {
   id: string;
   year: string;
   place?: string;
-  es: { title: string; signal: string; source: string };
-  en: { title: string; signal: string; source: string };
+  es: { title: string; signal: string };
+  en: { title: string; signal: string };
 }
 
 export const EMAIL = 'peter.calcina1221@gmail.com';
@@ -123,13 +124,11 @@ export const JUMPS: Jump[] = [
       title: 'Desarrollador · Smart Step',
       signal:
         'Responsable del desarrollo integral de la plataforma digital: diseño y construcción del sitio web académico y evolución continua del sistema interno (ERP).',
-      source: '',
     },
     en: {
       title: 'Developer · Smart Step',
       signal:
         'Responsible for the full digital platform: design and build of the academic website and ongoing evolution of the internal system (ERP).',
-      source: '',
     },
   },
   {
@@ -140,13 +139,11 @@ export const JUMPS: Jump[] = [
       title: 'Diseño y Desarrollo Web · Trauma Regenerativa',
       signal:
         'Creación del sitio web oficial de la clínica para presentar a sus especialistas, servicios y canales de atención en Cochabamba y Oruro.',
-      source: '',
     },
     en: {
       title: 'Web Design & Development · Trauma Regenerativa',
       signal:
         'Built the clinic’s official website to present specialists, services, and contact channels in Cochabamba and Oruro.',
-      source: '',
     },
   },
   {
@@ -157,13 +154,11 @@ export const JUMPS: Jump[] = [
       title: 'Ingeniería de Sistemas · Univalle',
       signal:
         'Formación en ingeniería de software, diseño de sistemas y arquitectura de datos en la Universidad del Valle.',
-      source: '',
     },
     en: {
       title: 'Systems Engineering · Univalle',
       signal:
         'Training in software engineering, systems design, and data architecture at Universidad del Valle.',
-      source: '',
     },
   },
 ];
@@ -179,47 +174,36 @@ export const COPY = {
       { href: '#experiencia', label: 'Experiencia' },
       { href: '#transmit', label: 'Contacto' },
     ],
+    menuOpen: 'Abrir menú',
+    menuClose: 'Cerrar menú',
     role: 'Desarrollador web',
     name: 'Peter Calcina',
     status: 'Cochabamba, Bolivia',
-    signalLead: 'Diseño interfaces claras. Construyo sistemas sólidos.',
-    sourceLead: '',
-    signalBody:
-      'Me encargo de que tu sitio o sistema no solo se vea profesional, sino que funcione rápido, sin errores y sea fácil de usar para tus clientes y tu equipo.',
-    sourceBody: '',
+    lead: 'Diseño interfaces claras. Construyo sistemas sólidos.',
+    body: 'Me encargo de que tu sitio o sistema no solo se vea profesional, sino que funcione rápido, sin errores y sea fácil de usar para tus clientes y tu equipo.',
     termTitle: 'consola',
     termHint: 'escribe help',
     missionsKicker: 'PROYECTOS',
-    missionsTitleSignal: 'Mis proyectos',
-    missionsTitleSource: '',
-    missionsSubSignal:
+    missionsTitle: 'Mis proyectos',
+    missionsSub:
       'Proyectos en producción y experimentos interactivos. Explora el resultado en vivo.',
-    missionsSubSource: '',
     openLive: 'Ver sitio',
     labKicker: 'PRUEBA ESTO',
-    labTitleSignal: 'Escribe y mira qué pasa',
-    labTitleSource: '',
-    labSubSignal:
+    labTitle: 'Escribe y mira qué pasa',
+    labSub:
       'Escribe. Lo de la izquierda cambia ya. Lo de la derecha espera a que pares. Así un sitio no se satura.',
-    labSubSource: '',
     labInput: 'Escribe un query',
     labDelay: 'debounce',
     labRaw: 'crudo',
     labSettled: 'asentado',
     labKeys: 'teclas',
     labEmits: 'emits',
-    logKicker: '',
-    logTitleSignal: 'Experiencia',
-    logTitleSource: '',
-    logSubSignal:
-      'Trayectoria profesional, proyectos en producción y formación académica.',
-    logSubSource: '',
+    logTitle: 'Experiencia',
+    logSub: 'Trayectoria profesional, proyectos en producción y formación académica.',
     txKicker: 'CONTACTO',
-    txTitleSignal: 'Contáctame',
-    txTitleSource: '',
-    txSubSignal:
+    txTitle: 'Contáctame',
+    txSub:
       'Cuéntame tu idea como en un chat; al enviar se abrirá tu correo listo para mandar. Si prefieres, copia mi dirección con un clic.',
-    txSubSource: '',
     txPlaceholder: 'Ej: Necesito una web para mi negocio o un sistema a medida para...',
     txSend: 'enviar',
     txCopy: 'copiar email',
@@ -257,47 +241,35 @@ export const COPY = {
       { href: '#experiencia', label: 'Experience' },
       { href: '#transmit', label: 'Contact' },
     ],
+    menuOpen: 'Open menu',
+    menuClose: 'Close menu',
     role: 'Web developer',
     name: 'Peter Calcina',
     status: 'Cochabamba, Bolivia',
-    signalLead: 'I design clear interfaces. I build solid systems.',
-    sourceLead: '',
-    signalBody:
-      'I make sure your site or system does not just look professional — it runs fast, stays reliable, and is easy to use for your clients and your team.',
-    sourceBody: '',
+    lead: 'I design clear interfaces. I build solid systems.',
+    body: 'I make sure your site or system does not just look professional — it runs fast, stays reliable, and is easy to use for your clients and your team.',
     termTitle: 'console',
     termHint: 'type help',
     missionsKicker: 'PROJECTS',
-    missionsTitleSignal: 'My projects',
-    missionsTitleSource: '',
-    missionsSubSignal:
-      'Production projects and interactive experiments. Explore the live result.',
-    missionsSubSource: '',
+    missionsTitle: 'My projects',
+    missionsSub: 'Production projects and interactive experiments. Explore the live result.',
     openLive: 'Open site',
     labKicker: 'TRY THIS',
-    labTitleSignal: 'Type and watch what happens',
-    labTitleSource: '',
-    labSubSignal:
+    labTitle: 'Type and watch what happens',
+    labSub:
       'Type. The left side updates now. The right side waits until you pause. That is how a site stays calm.',
-    labSubSource: '',
     labInput: 'Type a query',
     labDelay: 'debounce',
     labRaw: 'raw',
     labSettled: 'settled',
     labKeys: 'keys',
     labEmits: 'emits',
-    logKicker: '',
-    logTitleSignal: 'Experience',
-    logTitleSource: '',
-    logSubSignal:
-      'Professional path, production projects, and academic training.',
-    logSubSource: '',
+    logTitle: 'Experience',
+    logSub: 'Professional path, production projects, and academic training.',
     txKicker: 'CONTACT',
-    txTitleSignal: 'Contact me',
-    txTitleSource: '',
-    txSubSignal:
+    txTitle: 'Contact me',
+    txSub:
       'Tell me your idea like a chat; when you send, your email app opens ready to go. Or copy my address in one click.',
-    txSubSource: '',
     txPlaceholder: 'Ex: I need a website for my business or a custom system for...',
     txSend: 'send',
     txCopy: 'copy email',
@@ -325,16 +297,12 @@ export const COPY = {
     unknown: 'command not found. try help.',
     jumped: 'opening',
   },
-};
+} as const;
 
-export function missionCopy(mission: Mission, lang: 'es' | 'en') {
+export function missionCopy(mission: Mission, lang: Lang) {
   return lang === 'es' ? mission.es : mission.en;
 }
 
-export function jumpCopy(jump: Jump, lang: 'es' | 'en') {
+export function jumpCopy(jump: Jump, lang: Lang) {
   return lang === 'es' ? jump.es : jump.en;
-}
-
-export function blurbFor(mission: Mission, lang: 'es' | 'en') {
-  return missionCopy(mission, lang).blurb;
 }

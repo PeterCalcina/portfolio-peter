@@ -15,14 +15,6 @@ export class InstrumentLab implements OnDestroy {
   readonly emits = signal(0);
   private timer: ReturnType<typeof setTimeout> | undefined;
 
-  title(): string {
-    return this.deck.copy().labTitleSignal;
-  }
-
-  sub(): string {
-    return this.deck.copy().labSubSignal;
-  }
-
   onType(value: string): void {
     this.raw.set(value);
     this.keys.update((n) => n + 1);

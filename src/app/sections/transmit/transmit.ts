@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnDestroy, signal } from '@angular/core';
 import { EMAIL, LINKEDIN, WHATSAPP, WHATSAPP_URL } from '../../core/content';
 import { Deck } from '../../core/deck';
 
@@ -7,7 +7,7 @@ import { Deck } from '../../core/deck';
   templateUrl: './transmit.html',
   styleUrl: './transmit.css',
 })
-export class Transmit {
+export class Transmit implements OnDestroy {
   readonly deck = inject(Deck);
   readonly email = EMAIL;
   readonly linkedin = LINKEDIN;
@@ -16,14 +16,7 @@ export class Transmit {
   readonly draft = signal('');
   readonly copied = signal(false);
   readonly thread = signal<string[]>([]);
-
-  title(): string {
-    return this.deck.copy().txTitleSignal;
-  }
-
-  sub(): string {
-    return this.deck.copy().txSubSignal;
-  }
+  private copiedTimer: ReturnType<typeof setTimeout> | undefined;
 
   send(): void {
     const text = this.draft().trim();
@@ -47,6 +40,11 @@ export class Transmit {
       el.remove();
     }
     this.copied.set(true);
-    window.setTimeout(() => this.copied.set(false), 1600);
+    clearTimeout(this.copiedTimer);
+    this.copiedTimer = setTimeout(() => this.copied.set(false), 1600);
+  }
+
+  ngOnDestroy(): void {
+    clearTimeout(this.copiedTimer);
   }
 }
