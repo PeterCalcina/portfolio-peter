@@ -34,45 +34,23 @@
   overflow: hidden;
 }
 
-.preview[data-kind='deck'] {
+.preview[data-kind='clinic'] {
   background:
-    radial-gradient(circle at 20% 40%, rgba(61, 255, 154, 0.22), transparent 36%),
-    linear-gradient(90deg, #0a1018 40%, #101820 40%);
+    radial-gradient(circle at 30% 40%, rgba(122, 231, 255, 0.2), transparent 40%),
+    linear-gradient(135deg, #0a1218, #101820);
 }
 
-.preview[data-kind='deck']::after {
+.preview[data-kind='clinic']::after {
   content: '';
   position: absolute;
-  right: 12%;
-  top: 18%;
-  width: 42%;
-  height: 64%;
-  border: 1px solid color-mix(in oklab, var(--color-ice) 50%, transparent);
+  left: 12%;
+  top: 28%;
+  width: 70%;
+  height: 44%;
+  border: 1px solid color-mix(in oklab, var(--color-ice) 55%, transparent);
 }
 
-.preview[data-kind='lab'] {
-  background: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 10px,
-    rgba(61, 255, 154, 0.08) 10px,
-    rgba(61, 255, 154, 0.08) 11px
-  );
-}
-
-.preview[data-kind='lab']::after {
-  content: '';
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 50%;
-  height: 2px;
-  background: var(--color-phosphor);
-  box-shadow: 0 0 12px var(--color-phosphor);
-  animation: pulse 1.8s ease-in-out infinite;
-}
-
-.preview[data-kind='work'] {
+.preview[data-kind='erp'] {
   background:
     linear-gradient(180deg, transparent 70%, rgba(255, 176, 32, 0.12)),
     repeating-linear-gradient(
@@ -84,7 +62,7 @@
     );
 }
 
-.preview[data-kind='work']::after {
+.preview[data-kind='erp']::after {
   content: '';
   position: absolute;
   left: 14%;
@@ -94,59 +72,49 @@
   border: 1px solid color-mix(in oklab, var(--color-amber) 55%, transparent);
 }
 
-.preview[data-kind='channel']::before,
-.preview[data-kind='channel']::after {
+.preview[data-kind='game'] {
+  background:
+    radial-gradient(circle at 70% 30%, rgba(61, 255, 154, 0.22), transparent 36%),
+    #0a1018;
+}
+
+.preview[data-kind='game']::before,
+.preview[data-kind='game']::after {
   content: '';
   position: absolute;
-  left: 12%;
-  height: 8px;
-  border-radius: 1px;
-}
-
-.preview[data-kind='channel']::before {
   top: 28%;
-  width: 58%;
-  background: color-mix(in oklab, var(--color-ice) 40%, transparent);
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  background: var(--color-phosphor);
 }
 
-.preview[data-kind='channel']::after {
-  top: 52%;
-  width: 36%;
-  background: color-mix(in oklab, var(--color-phosphor) 50%, transparent);
+.preview[data-kind='game']::before {
+  left: 28%;
 }
 
-.drawer-back {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  background: rgb(0 0 0 / 0.55);
+.preview[data-kind='game']::after {
+  right: 28%;
+  background: var(--color-amber);
 }
 
-.drawer {
-  position: fixed;
-  z-index: 60;
-  top: 0;
-  right: 0;
-  height: 100dvh;
-  width: min(28rem, 100vw);
-  padding: 1.5rem;
-  overflow: auto;
+.preview[data-kind='party'] {
+  background: repeating-linear-gradient(
+    -35deg,
+    #0a1018,
+    #0a1018 12px,
+    rgba(122, 231, 255, 0.08) 12px,
+    rgba(122, 231, 255, 0.08) 24px
+  );
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scaleX(0.7);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scaleX(1);
-    opacity: 1;
-  }
+.preview[data-kind='party']::after {
+  content: '';
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  top: 38%;
+  height: 24%;
+  border: 1px solid color-mix(in oklab, var(--color-ice) 50%, transparent);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .preview[data-kind='lab']::after {
-    animation: none;
-  }
-}

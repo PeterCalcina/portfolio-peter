@@ -1,13 +1,16 @@
 <a class="skip-link" href="#deck">{{ deck.copy().skip }}</a>
 
 <header class="sticky top-0 z-40 border-b border-line/80 bg-void/80 backdrop-blur-md">
-  <div class="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-4 py-3 md:px-6">
+  <div class="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 md:px-6">
     <p class="kicker shrink-0">{{ deck.copy().brand }}</p>
 
-    <nav class="flex min-w-0 flex-1 gap-1 overflow-x-auto" [attr.aria-label]="deck.copy().brand">
+    <nav
+      class="hidden min-w-0 flex-1 items-center justify-center gap-1 md:flex"
+      [attr.aria-label]="deck.copy().brand"
+    >
       @for (item of deck.copy().nav; track item.href) {
         <a
-          class="shrink-0 px-2.5 py-1 text-[0.72rem] uppercase tracking-[0.16em] text-fog hover:text-ice"
+          class="px-2.5 py-1 text-[0.72rem] uppercase tracking-[0.16em] text-fog hover:text-ice"
           [href]="item.href"
         >
           {{ item.label }}
@@ -38,8 +41,38 @@
           EN
         </button>
       </div>
+
+      <button
+        type="button"
+        class="menu-btn inline-flex h-9 w-9 items-center justify-center border border-line text-paper md:hidden"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-nav"
+        [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+        (click)="toggleMenu()"
+      >
+        <span class="menu-icon" [class.open]="menuOpen()" aria-hidden="true"></span>
+      </button>
     </div>
   </div>
+
+  @if (menuOpen()) {
+    <div class="mobile-scrim md:hidden" (click)="closeMenu()"></div>
+    <nav
+      id="mobile-nav"
+      class="mobile-panel border-t border-line px-4 py-4 md:hidden"
+      [attr.aria-label]="deck.copy().brand"
+    >
+      @for (item of deck.copy().nav; track item.href) {
+        <a
+          class="block border-b border-line/60 px-1 py-3 text-sm uppercase tracking-[0.18em] text-paper last:border-b-0 hover:text-ice"
+          [href]="item.href"
+          (click)="closeMenu()"
+        >
+          {{ item.label }}
+        </a>
+      }
+    </nav>
+  }
 </header>
 
 <main>
