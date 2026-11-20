@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist/portfolio-peter/browser"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# SPA fallback: deep links and refresh land on index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
